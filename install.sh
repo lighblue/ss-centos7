@@ -36,6 +36,8 @@ if [ ! $? -eq 0 ] ; then
     exit 3
 fi
 
+cd ../
+
 cat > start <<EOF
 #!/bin/bash
 nohup ss-server -u -s $local_ip -p $shadowsocks_port -l $shadowsocks_local_port -k $shadowsocks_passwd -m $shadowsocks_encrypt_method >${script_dir}/sslog_${shadowsocks_port}.log 2>&1 &
