@@ -39,6 +39,7 @@ fi
 cat > start <<EOF
 #!/bin/bash
 nohup ss-server -u -s $local_ip -p $shadowsocks_port -l $shadowsocks_local_port -k $shadowsocks_passwd -m $shadowsocks_encrypt_method >${script_dir}/sslog_${shadowsocks_port}.log 2>&1 &
+iptables -P INPUT ACCEPT
 iptables -F
 EOF
 
